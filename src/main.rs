@@ -33,7 +33,37 @@ fn main(){
         }
     }; 
 
+    let result = match operator {
+        "+" => add(num1, num2),
+        "-" => subtract(num1, num2),
+        "*" => multiply(num1, num2),
+        "/" => divide(num1, num2),
+        _ => {
+            println!("Invalid operator. Use +, -, *, or /.");
+            return;
+        }
+    }; 
 
+    println!("Result: {:.2}", result); 
 
+}
 
+fn add(a: f64, b: f64) -> f64 {
+    a + b
+}
+
+fn subtract(a: f64, b: f64) -> f64{
+    a - b 
+}
+
+fn multiply(a: f64, b: f64) -> f64{
+    a * b 
+}
+
+fn divide(a: f64, b: f64) -> f64{
+    if b == 0.0 {
+        println!("Division by zero is not allowed.");
+        std::process::exit(1); 
+    }
+    a / b 
 }
